@@ -1,0 +1,301 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %}
+<style>
+
+    .carousel {
+            width: 90%;
+            height: 350px;
+            margin: 0 auto;
+            border-radius: 15px;
+            overflow: hidden;
+            margin-top: 20px;
+        }
+    .carousel-inner img {
+        height: 500px;
+        object-fit: cover;
+    }
+    .carousel-item {
+        height: 100%;
+    }
+
+    .carousel-caption {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        text-align: center;
+        background-color: rgba(0, 0, 0, 0.4); /* Optional: adds a semi-transparent background */ 
+        padding: 10px;
+        border-radius: 10px;
+        width: 100%; /* Adjust the width of the caption */
+        height: 100%; /* Adjust the height of the caption */
+        font-size: 1.2em; /* Adjust the font size of the caption */
+    }
+    .carousel-item {
+        transition: transform 0.7s ease, opacity 0.8s ease; /* Adjust transition duration */
+    }
+
+    #textCarou{
+        font-size: 30px;
+        font-weight: bold;
+        color: white;
+    }
+
+    .card {
+            border-top: none;
+            border-bottom: none;
+            border-left: none;
+            border-right: none;
+            background-color: transparent;
+        }
+    .card-body {
+        background-color: none;
+    }
+    .card-text {
+        font-size: 15px;
+    }
+    #containerAccueil {
+        width: 90%;
+        margin: auto;
+        overflow: hidden;
+        margin-top: 150px;
+    }
+
+    #imgAccueil{
+        widht: 50%;
+        height: 50%;
+        object-fit: cover;
+    }
+
+    #imgAccueil2{
+        widht: 70%;
+        height: 70%;
+        object-fit: cover;
+    }
+
+    .highlight {
+        color: rgb(9, 71, 113);
+        font-weight: bold;
+        font-size: 16px;
+    }
+
+    .card-title {
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    .card-img-top {
+            width: 100%;
+            height: 200px; /* Taille fixe pour les images */
+            object-fit: cover; /* Pour couvrir toute la zone sans déformation */
+        }
+        .divider {
+            height: 2px;
+            background-color: #ccc;
+            margin: 30px 0;
+        }
+
+
+</style>
+   <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="5000">
+    <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="3"></li> <!-- Fourth indicator -->
+    </ol>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img class="d-block w-100" src="{{ asset('images/carousel/carousel1.jpg') }}" alt="First slide">
+            <div class="carousel-caption">
+                <h5>Diagnostique</h5>
+                <p id="textCarou">Venez en boutique pour établir un devis précis des réparations à effectuer sur vos appareils</p>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img class="d-block w-100" src="{{ asset('images/carousel/carousel2.jpeg') }}" alt="Second slide">
+            <div class="carousel-caption">
+                <h5>Second Slide Title</h5>
+                <p id="textCarou">Some description for the second slide.</p>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img class="d-block w-100" src="{{ asset('images/carousel/carousel3.jpeg') }}" alt="Third slide">
+            <div class="carousel-caption">
+                <h5>Third Slide Title</h5>
+                <p id="textCarou">Some description for the third slide.</p>
+            </div>
+        </div>
+        <div class="carousel-item"> <!-- Fourth slide -->
+            <img class="d-block w-100" src="{{ asset('images/carousel/carousel4.jpeg') }}" alt="Fourth slide">
+            <div class="carousel-caption">
+                <h5>Fourth Slide Title</h5>
+                <p id="textCarou">Some description for the fourth slide.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-5">
+    <div class="d-flex justify-content-center mb-5">
+        <h2>Une réparation ?</h2>
+    </div>
+    <div class="row">
+        <!-- Card 1 -->
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <a href="/repair-phone">
+                    <img src="{{ asset('images/accueil/rep_phone_accueil.png') }}" class="card-img-top" alt="Téléphone">
+                </a>
+                <div class="card-body text-center">
+                    <p class="card-text">Téléphone</p>
+                </div>
+            </div>
+        </div>
+        <!-- Card 2 -->
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <a href="/repair-tablet">
+                    <img src="{{ asset('images/accueil/rep_tablette_accueil.png') }}" class="card-img-top" alt="Tablette">
+                </a>
+                <div class="card-body text-center">
+                    <p class="card-text">Tablette</p>
+                </div>
+            </div>
+        </div>
+        <!-- Card 3 -->
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <a href="/repair-computer">
+                    <img src="{{ asset('images/accueil/rep_pc_accueil.png') }}" class="card-img-top" alt="Ordinateur">
+                </a>
+                <div class="card-body text-center">
+                    <p class="card-text">Ordinateur</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Divider -->
+    <div class="divider"></div>
+
+    <!-- Large Card -->
+    <div class="card mb-4">
+        <div class="row no-gutters">
+            <div class="col-md-4">
+                <img src="{{ asset('images/accueil/boutique_accueil2.jpeg') }}" class="card-img" alt="Boutique">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">Notre Boutique</h5>
+                    <p class="card-text">Bienvenue dans notre boutique. Nous offrons une large gamme de produits et services pour répondre à tous vos besoins en matière de téléphonie, tablettes et ordinateurs. Venez nous rendre visite et découvrez notre sélection exceptionnelle.</p>
+                    <p class="card-text"><strong>Horaires d'ouverture :</strong><br>
+                        Lundi - Vendredi : 9h00 - 19h00<br>
+                        Samedi : 10h00 - 18h00<br>
+                        Dimanche : Fermé
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--- Container Accueil -->
+
+
+<div class="container mt-5" id="containerAccueil">
+    <!-- First Card -->
+    <div class="row mb-4">
+        <div class="col-md-6 d-flex justify-content-center align-items-center">
+            <img src="{{ asset('images/accueil/real-mobile_accueil.png') }}" class="img-fluid d-block" id="imgAccueil2" alt="Image 1">
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Smartphones Reconditionnés et Occasions</h5>
+                    <p class="card-text">
+                        L'achat de <span class="highlight">téléphones d'occasion</span> est bénéfique pour l'environnement car ils ne nécessitent aucune réparation, étant vendus dans leur état d'origine. Cela évite la consommation de nouvelles ressources et les émissions de CO2 liées à la fabrication et au transport des pièces.
+
+                        Le reconditionnement est aussi crucial dans le recyclage électronique. Les <span class="highlight">téléphones reconditionnés</span> sont réparés, testés et nettoyés pour garantir leur bon fonctionnement. Cela prolonge leur durée de vie et réduit les déchets électroniques.
+
+                        Choisir des téléphones d'occasion ou reconditionnés contribue à réduire l'<span class="highlight">empreinte écologique</span>. Les deux options offrent des alternatives écologiques et économiques à l'achat de <span class="highlight">téléphones neufs</span>, favorisant une consommation durable.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Second Card -->
+    <div class="row mb-4">
+        <div class="col-md-6 order-md-2 d-flex justify-content-center align-items-center">
+            <img src="{{ asset('images/accueil/pcAccueil.png') }}" class="img-fluid" alt="Image 2">
+        </div>
+        <div class="col-md-6 order-md-1">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Réparation de PC et Vente de PC d'Occasion </h5>
+                    <p class="card-text">
+                        Réparer votre PC ou acheter un <span class="highlight">PC d'occasion</span> prolonge la durée de vie des ordinateurs et les remet en état de marche. La réparation permet d'<span class="highlight">optimiser les performances</span> sans investir dans un nouvel appareil. Nos techniciens diagnostiquent et résolvent divers problèmes, remplaçant les composants défectueux et améliorant le système.
+
+                        Acheter un PC d'occasion est une alternative <span class="highlight">économique et écologique</span>. Ces ordinateurs sont vérifiés et remis en état pour garantir leur fiabilité. Cela réduit la demande de nouveaux appareils et l'empreinte écologique liée à leur production.
+
+                        En choisissant ces options, vous <span class="highlight">réduisez les déchets</span> électroniques tout en profitant d'un matériel performant. Cela favorise une consommation durable et responsable, donnant une seconde vie aux ordinateurs sans sacrifier votre budget.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Third Card -->
+    <div class="row mb-4">
+        <div class="col-md-6 d-flex justify-content-center align-items-center ">
+            <img src="{{ asset('images/accueil/coqueAccueil2.png') }}" class="img-fluid" id="imgAccueil2" alt="Image 3">
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Protégez Votre Téléphone</h5>
+                    <p class="card-text">
+                        Notre boutique offre un vaste choix de coques pour tous les modèles de téléphones. <span class="highlight">Protéger votre téléphone</span> est essentiel pour éviter la casse et prolonger sa durée de vie. Une coque de qualité absorbe les chocs et prévient les rayures, réduisant ainsi les risques de réparations coûteuses.
+
+                        Investir dans une <span class="highlight">bonne protection</span> vous permet de faire des économies à long terme. Remplacer un écran cassé ou réparer un téléphone endommagé peut coûter cher. Une coque adaptée aide à éviter ces dépenses imprévues.
+
+                        Notre gamme de coques combine <span class="highlight">style et fonctionnalité</span>, avec des options pour tous les goûts. En plus des coques, nous offrons des accessoires complémentaires pour une <span class="highlight">protection maximale</span>. Protéger votre téléphone est un geste simple qui peut vous épargner bien des tracas et des dépenses. <span class="highlight">Visitez notre boutique</span> pour découvrir notre sélection.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Fourth Card -->
+    <div class="row mb-4">
+        <div class="col-md-6 order-md-2 d-flex justify-content-center ">
+            <img src="{{ asset('images/accueil/Hydrogel3.png') }}" class="img-fluid" id="imgAccueil2" alt="Image 4">
+        </div>
+        <div class="col-md-6 order-md-1">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">L'Importance du Film Hydrogel pour Votre Téléphone</h5>
+                    <p class="card-text">
+                        <span class="highlight">Protéger l'écran</span> de votre téléphone est crucial. Chez D'panne Phones, nous proposons le film hydrogel, une solution de protection avancée. Ce film offre une protection supérieure contre les coups et les rayures du quotidien, tout en maintenant la clarté et la sensibilité de l'écran. <br>
+
+                        Le <span class="highlight">film hydrogel</span> absorbe les impacts, réduisant les risques de fissures et de dommages. Il s'adapte parfaitement aux contours de votre appareil, assurant une couverture complète.
+
+                        Nous disposons d'une machine pour découper et poser le film hydrogel <span class="highlight">sur mesure immédiatement</span>. En quelques minutes, votre téléphone bénéficie d'une protection optimale, ajustée à ses dimensions spécifiques.
+
+                        Le film hydrogel est <span class="highlight">auto-réparant</span>, les petites rayures disparaissent avec le temps. Venez chez D'panne Phones pour découvrir les avantages du film hydrogel et profiter d'une pose sur mesure. Protégez votre téléphone efficacement contre les défis du quotidien.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

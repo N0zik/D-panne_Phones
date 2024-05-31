@@ -1,0 +1,139 @@
+{# templates/security/register.html.twig #}
+
+{% extends 'base.html.twig' %}
+{% block title %}Inscription{% endblock %}
+
+{% block body %}
+
+<style>
+    .carousel {
+            width: 90%;
+            height: 300px;
+            margin: 0 auto;
+            border-radius: 15px;
+            overflow: hidden;
+            margin-top: 20px;
+        }
+    .carousel-inner img {
+        height: 500px;
+        object-fit: cover;
+    }
+    .carousel-item {
+        height: 100%;
+    }
+
+    .carousel-caption {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        text-align: center;
+        background-color: rgba(0, 0, 0, 0.4); /* Optional: adds a semi-transparent background */ 
+        padding: 10px;
+        border-radius: 10px;
+        width: 100%; /* Adjust the width of the caption */
+        height: 100%; /* Adjust the height of the caption */
+        font-size: 1.2em; /* Adjust the font size of the caption */
+    }
+    .carousel-item {
+        transition: transform 0.7s ease, opacity 0.8s ease; /* Adjust transition duration */
+    }
+
+    #quiSommesNous{
+        font-size: 30px;
+        font-weight: bold;
+        color: white;
+    }
+
+</style>
+
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="5000">
+    
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img class="d-block w-100" src="{{ asset('images/baner/inscription.avif') }}" alt="First slide">
+            <div class="carousel-caption">
+                <h5 id="quiSommesNous" >Inscription</h5>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-5">
+    <div class="card mx-auto" style="width: 80%;">
+        <div class="card-header">
+            <h3 class="card-title d-flex justify-content-center">Inscription</h3>
+        </div>
+        <div class="card-body">
+            {{ form_start(registrationForm) }}
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  {{ form_label(registrationForm.nom) }}
+                  {{ form_widget(registrationForm.nom, {'attr': {'class': 'form-control'}}) }}
+                  {{ form_errors(registrationForm.nom) }}
+                </div>
+                <div class="form-group col-md-6">
+                  {{ form_label(registrationForm.prenom) }}
+                  {{ form_widget(registrationForm.prenom, {'attr': {'class': 'form-control'}}) }}
+                  {{ form_errors(registrationForm.prenom) }}
+                </div>
+              </div>
+              <div class="form-group">
+                {{ form_label(registrationForm.email) }}
+                {{ form_widget(registrationForm.email, {'attr': {'class': 'form-control'}}) }}
+                {{ form_errors(registrationForm.email) }}
+              </div>
+              <div class="form-group">
+                {{ form_label(registrationForm.adresse) }}
+                {{ form_widget(registrationForm.adresse, {'attr': {'class': 'form-control'}}) }}
+                {{ form_errors(registrationForm.adresse) }}
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-4">
+                  {{ form_label(registrationForm.codePostal) }}
+                  {{ form_widget(registrationForm.codePostal, {'attr': {'class': 'form-control'}}) }}
+                  {{ form_errors(registrationForm.codePostal) }}
+                </div>
+                <div class="form-group col-md-4">
+                  {{ form_label(registrationForm.ville) }}
+                  {{ form_widget(registrationForm.ville, {'attr': {'class': 'form-control'}}) }}
+                  {{ form_errors(registrationForm.ville) }}
+                </div>
+                <div class="form-group col-md-4">
+                  {{ form_label(registrationForm.phone) }}
+                  {{ form_widget(registrationForm.phone, {'attr': {'class': 'form-control'}}) }}
+                  {{ form_errors(registrationForm.phone) }}
+                </div>
+              </div>
+              <div class="form-group">
+                {{ form_label(registrationForm.status) }}
+                {{ form_widget(registrationForm.status, {'attr': {'class': 'form-control'}}) }}
+                {{ form_errors(registrationForm.status) }}
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  {{ form_label(registrationForm.plainPassword.first) }}
+                  {{ form_widget(registrationForm.plainPassword.first, {'attr': {'class': 'form-control'}}) }}
+                  {{ form_errors(registrationForm.plainPassword.first) }}
+                </div>
+                <div class="form-group col-md-6">
+                  {{ form_label(registrationForm.plainPassword.second) }}
+                  {{ form_widget(registrationForm.plainPassword.second, {'attr': {'class': 'form-control'}}) }}
+                  {{ form_errors(registrationForm.plainPassword.second) }}
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary">Inscrivez-vous</button>
+            {{ form_end(registrationForm) }}
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
+
