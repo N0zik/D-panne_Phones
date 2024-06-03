@@ -20,11 +20,11 @@ Etapes pour restaurer le projet D'panne Phones :
 
 2 - Installer Composer : composer install ou composer i
 
-3 - Télécharger la BDD symfony-books.sql : https://github.com/N0zik/symfony-books/blob/master/D-panne_Phones.sql
+3 - Télécharger la BDD d_panne_phones.sql : https://github.com/N0zik/symfony-books/blob/master/D-panne_Phones.sql
 
 4 - Créer la BDD d_panne_phones dans PhpMyAdmin : Choisir l'interclassement utf8mb4_general_ci
 
-5 - Restaurer la base BDD dans PhpMyAdmin : Cliquer sur importer puis sélectionner le fichier symfony-books.sql
+5 - Restaurer la base BDD dans PhpMyAdmin : Cliquer sur importer puis sélectionner le fichier d_panne_phones.sql
 
 6 - Lancer le serveur : symfony serve
 
