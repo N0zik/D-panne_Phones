@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="container mt-4">
+    <h1 class="text-center mb-4">Éditer la Marque</h1>
+    
+    {{ form_start(form) }}
+        <div class="form-group">
+            {{ form_label(form.name) }}
+            {{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
+            {{ form_errors(form.name) }}
+        </div>
+        <div class="form-group">
+            {{ form_label(form.image) }}
+            {{ form_widget(form.image, {'attr': {'class': 'form-control'}}) }}
+            {{ form_errors(form.image) }}
+        </div>
+        <div class="form-group">
+            {{ form_label(form.hasPhone) }}
+            {{ form_widget(form.hasPhone, {'attr': {'class': 'form-check-input'}}) }}
+            {{ form_errors(form.hasPhone) }}
+        </div>
+        <div class="form-group">
+            {{ form_label(form.hasTablet) }}
+            {{ form_widget(form.hasTablet, {'attr': {'class': 'form-check-input'}}) }}
+            {{ form_errors(form.hasTablet) }}
+        </div>
+        <button type="submit" class="btn btn-primary">Sauvegarder les modifications</button>
+    {{ form_end(form) }}
+
+    <a href="{{ path('admin_index') }}" class="btn btn-secondary mt-4 mb-5">Retour</a>
+</div>
+{% endblock %}
