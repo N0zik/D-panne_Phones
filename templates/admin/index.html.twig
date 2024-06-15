@@ -1,0 +1,163 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="container mt-4">
+    <h1 class="text-center mb-4">Admin - Gestion des Marques, Modèles et Réparations</h1>
+    
+    <!-- Onglets -->
+    <ul class="nav nav-tabs" id="adminTabs" role="tablist">
+        <li class="nav-item" role="presentation">
+            <a class="nav-link active" id="marques-tab" data-toggle="tab" href="#marques" role="tab" aria-controls="marques" aria-selected="true">Marques</a>
+        </li>
+        <li class="nav-item" role="presentation">
+            <a class="nav-link" id="modeles-tab" data-toggle="tab" href="#modeles" role="tab" aria-controls="modeles" aria-selected="false">Modèles</a>
+        </li>
+        <li class="nav-item" role="presentation">
+            <a class="nav-link" id="reparations-tab" data-toggle="tab" href="#reparations" role="tab" aria-controls="reparations" aria-selected="false">Réparations</a>
+        </li>
+    </ul>
+
+    <div class="tab-content" id="adminTabsContent">
+        <!-- Marques -->
+        <div class="tab-pane fade show active" id="marques" role="tabpanel" aria-labelledby="marques-tab">
+            <h2 class="mt-4">Gestion des Marques</h2>
+            {{ form_start(marqueForm) }}
+                {{ form_row(marqueForm.name) }}
+                {{ form_row(marqueForm.image) }}
+                {{ form_row(marqueForm.hasPhone) }}
+                {{ form_row(marqueForm.hasTablet) }}
+                <button type="submit" class="btn btn-primary mb-3 mt-3">Ajouter une Marque</button>
+            {{ form_end(marqueForm) }}
+            <h3 class="mt-4">Liste des Marques</h3>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Nom</th>
+                        <th>Image</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for marque in marques %}
+                        <tr>
+                            <td>{{ marque.name }}</td>
+                            <td><img src="{{ asset('uploads/images/' ~ marque.image) }}" alt="{{ marque.name }}" width="50"></td>
+                            <td>
+                                <a href="{{ path('admin_marque_edit', {'id': marque.id}) }}" class="btn btn-sm btn-warning">Éditer</a>
+                                <a href="{{ path('admin_marque_delete', {'id': marque.id}) }}" class="btn btn-sm btn-danger">Supprimer</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Modèles -->
+        <div class="tab-pane fade" id="modeles" role="tabpanel" aria-labelledby="modeles-tab">
+            <h2 class="mt-4">Gestion des Modèles</h2>
+            {{ form_start(modelForm) }}
+                {{ form_row(modelForm.name) }}
+                {{ form_row(modelForm.marque) }}
+                {{ form_row(modelForm.image) }}
+                {{ form_row(modelForm.hasPhone) }}
+                {{ form_row(modelForm.hasTablet) }}
+                <button type="submit" class="btn btn-primary mb-3 mt-3">Ajouter un Modèle</button>
+            {{ form_end(modelForm) }}
+            
+            <!-- Liste des Modèles pour Téléphone -->
+            <h3 class="mt-4">Liste des Modèles pour Téléphone</h3>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Nom</th>
+                        <th>Marque</th>
+                        <th>Image</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for model in models %}
+                        {% if model.hasPhone %}
+                        <tr>
+                            <td>{{ model.name }}</td>
+                            <td>{{ model.marque.name }}</td>
+                            <td><img src="{{ asset('uploads/images/' ~ model.image) }}" alt="{{ model.name }}" width="50"></td>
+                            <td>
+                                <a href="{{ path('admin_modele_edit', {'id': model.id}) }}" class="btn btn-sm btn-warning">Éditer</a>
+                                <a href="{{ path('admin_modele_delete', {'id': model.id}) }}" class="btn btn-sm btn-danger">Supprimer</a>
+                            </td>
+                        </tr>
+                        {% endif %}
+                    {% endfor %}
+                </tbody>
+            </table>
+
+            <!-- Liste des Modèles pour Tablette -->
+            <h3 class="mt-4">Liste des Modèles pour Tablette</h3>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Nom</th>
+                        <th>Marque</th>
+                        <th>Image</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for model in models %}
+                        {% if model.hasTablet %}
+                        <tr>
+                            <td>{{ model.name }}</td>
+                            <td>{{ model.marque.name }}</td>
+                            <td><img src="{{ asset('uploads/images/' ~ model.image) }}" alt="{{ model.name }}" width="50"></td>
+                            <td>
+                                <a href="{{ path('admin_modele_edit', {'id': model.id}) }}" class="btn btn-sm btn-warning">Éditer</a>
+                                <a href="{{ path('admin_modele_delete', {'id': model.id}) }}" class="btn btn-sm btn-danger">Supprimer</a>
+                            </td>
+                        </tr>
+                        {% endif %}
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Réparations -->
+        <div class="tab-pane fade" id="reparations" role="tabpanel" aria-labelledby="reparations-tab">
+            <h2 class="mt-4">Gestion des Réparations</h2>
+            {{ form_start(reparationForm) }}
+                {{ form_row(reparationForm.name) }}
+                {{ form_row(reparationForm.model) }}
+                {{ form_row(reparationForm.description) }}
+                {{ form_row(reparationForm.prix) }}
+                <button type="submit" class="btn btn-primary mb-3 mt-3">Ajouter une Réparation</button>
+            {{ form_end(reparationForm) }}
+            <h3 class="mt-4">Liste des Réparations</h3>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Nom</th>
+                        <th>Modèle</th>
+                        <th>Description</th>
+                        <th>Prix</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for reparation in reparations %}
+                        <tr>
+                            <td>{{ reparation.name }}</td>
+                            <td>{{ reparation.model.name }}</td>
+                            <td>{{ reparation.description }}</td>
+                            <td>{{ reparation.prix }} €</td>
+                            <td>
+                                <a href="{{ path('admin_reparation_edit', {'id': reparation.id}) }}" class="btn btn-sm btn-warning">Éditer</a>
+                                <a href="{{ path('admin_reparation_delete', {'id': reparation.id}) }}" class="btn btn-sm btn-danger">Supprimer</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

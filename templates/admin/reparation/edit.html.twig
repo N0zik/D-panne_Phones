@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="container mt-4">
+    <h1 class="text-center mb-4">Éditer la Réparation</h1>
+    
+    {{ form_start(form) }}
+        <div class="form-group">
+            {{ form_label(form.name) }}
+            {{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
+            {{ form_errors(form.name) }}
+        </div>
+        <div class="form-group">
+            {{ form_label(form.model) }}
+            {{ form_widget(form.model, {'attr': {'class': 'form-control'}}) }}
+            {{ form_errors(form.model) }}
+        </div>
+        <div class="form-group">
+            {{ form_label(form.description) }}
+            {{ form_widget(form.description, {'attr': {'class': 'form-control'}}) }}
+            {{ form_errors(form.description) }}
+        </div>
+        <div class="form-group">
+            {{ form_label(form.prix) }}
+            {{ form_widget(form.prix, {'attr': {'class': 'form-control'}}) }}
+            {{ form_errors(form.prix) }}
+        </div>
+    {{ form_end(form) }}
+        <div class="mt-5">
+            <button type="submit" class="btn btn-primary mb-5">Sauvegarder les modifications</button>
+        </div>
+
+        <a href="{{ path('admin_index') }}" class="btn btn-secondary mt-3 mb-5">Retour</a>
+</div>
+{% endblock %}

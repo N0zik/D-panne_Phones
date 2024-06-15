@@ -94,8 +94,8 @@
 
     .card-img-top {
             width: 100%;
-            height: 200px; /* Taille fixe pour les images */
-            object-fit: cover; /* Pour couvrir toute la zone sans déformation */
+            height: 200px;
+            object-fit: cover;
         }
         .divider {
             height: 2px;
@@ -103,6 +103,44 @@
             margin: 30px 0;
         }
 
+/* divider */
+
+    .divider {
+    width: 30%; /* Largeur du diviseur */
+    height: 1px; /* Hauteur maximale du diviseur */
+    background: linear-gradient(to right, transparent, rgb(9, 71, 113), transparent); /* Dégradé linéaire */
+    margin: 20px 0; /* Marge autour du diviseur */
+    position: relative; /* Nécessaire pour les pseudo-éléments */
+    }
+
+
+/* divider */
+
+{# card section appareils #}
+
+        #card1 {
+            height: 200px;
+            width: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            background-color: transparent;
+            border: none;
+        }
+
+        #card-img-top1 {
+            max-height: 200px; 
+            width: auto;
+            max-width: 100%; 
+            
+        }
+
+        #card-body1 {
+            padding: 0.5rem; /* Réduit le padding intérieur pour économiser de l'espace */
+        }
+
+{# card section appareils #}
 
 </style>
    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="5000">
@@ -144,75 +182,91 @@
     </div>
 </div>
 
-<div class="container mt-5">
-    <div class="d-flex justify-content-center mb-5">
-        <h2>Une réparation ?</h2>
+{# card section appareils #}
+
+<div class="container mt-5 mb-5 ">
+    <div class="d-flex justify-content-center mb-5 mt-5">
+        <h2 class="mb-5">Selectionnez votre appareil.</h2>
     </div>
-    <div class="row">
+    <div class="row d-flex justify-content-center mt-5">
         <!-- Card 1 -->
-        <div class="col-md-4 mb-4">
-            <div class="card">
-                <a href="/repair-phone">
-                    <img src="{{ asset('images/accueil/rep_phone_accueil.png') }}" class="card-img-top" alt="Téléphone">
+        <div class="col-md-4 mb-4 d-flex justify-content-center align-items-center">
+            <div class="card" id="card1">
+                <a href="{{ path('choix_marque', {'type': 'phone'}) }}">
+                    <img src="{{ asset('images/accueil/rep_phone_accueil.png') }}" class="card-img-top  mt-3" id="image_rep_mobile card-img-top1" alt="Téléphone">
                 </a>
-                <div class="card-body text-center">
-                    <p class="card-text">Téléphone</p>
+                <div class="card-body1 text-center" id="card-body1">
+                    <p class="card-text1 mt-3">Téléphone</p>
                 </div>
             </div>
         </div>
         <!-- Card 2 -->
-        <div class="col-md-4 mb-4">
-            <div class="card">
-                <a href="/repair-tablet">
-                    <img src="{{ asset('images/accueil/rep_tablette_accueil.png') }}" class="card-img-top" alt="Tablette">
+        <div class="col-md-4 mb-4 d-flex justify-content-center align-items-center">
+            <div class="card" id="card1">
+                <a href="{{ path('choix_marque', {'type': 'tablet'}) }}">
+                    <img src="{{ asset('images/accueil/rep_tablette_accueil.png') }}" class="card-img-top" id="card-img-top1" alt="Tablette">
                 </a>
-                <div class="card-body text-center">
-                    <p class="card-text">Tablette</p>
+                <div class="card-body1 text-center" id="card-body1">
+                    <p class="card-text1 mt-3">Tablette</p>
                 </div>
             </div>
         </div>
         <!-- Card 3 -->
-        <div class="col-md-4 mb-4">
-            <div class="card">
-                <a href="/repair-computer">
-                    <img src="{{ asset('images/accueil/rep_pc_accueil.png') }}" class="card-img-top" alt="Ordinateur">
+        <div class="col-md-4 mb-4 d-flex justify-content-center align-items-center">
+            <div class="card" id="card1">
+                <a href="{{path('app_ordinateur')}}">
+                    <img src="{{ asset('images/accueil/rep_pc_accueil.png') }}" class="card-img-top" id="card-img-top1" alt="Ordinateur">
                 </a>
-                <div class="card-body text-center">
-                    <p class="card-text">Ordinateur</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Divider -->
-    <div class="divider"></div>
-
-    <!-- Large Card -->
-    <div class="card mb-4">
-        <div class="row no-gutters">
-            <div class="col-md-4">
-                <img src="{{ asset('images/accueil/boutique_accueil2.jpeg') }}" class="card-img" alt="Boutique">
-            </div>
-            <div class="col-md-8">
-                <div class="card-body">
-                    <h5 class="card-title">Notre Boutique</h5>
-                    <p class="card-text">Bienvenue dans notre boutique. Nous offrons une large gamme de produits et services pour répondre à tous vos besoins en matière de téléphonie, tablettes et ordinateurs. Venez nous rendre visite et découvrez notre sélection exceptionnelle.</p>
-                    <p class="card-text"><strong>Horaires d'ouverture :</strong><br>
-                        Lundi - Vendredi : 9h00 - 19h00<br>
-                        Samedi : 10h00 - 18h00<br>
-                        Dimanche : Fermé
-                    </p>
+                <div class="card-body1 text-center" id="card-body1">
+                    <p class="card-text1 mt-3">Ordinateur</p>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+{# card section appareils #}
+
+<!-- Divider -->
+
+<div class=" d-flex justify-content-center" >
+    <div class="divider "></div>
+</div>
+
+<!-- Divider -->
+
+<!-- Large Card -->
+<div class="container mt-5 card mb-4">
+    <div class="row no-gutters">
+        <div class="col-md-4">
+            <img src="{{ asset('images/accueil/boutique_accueil2.jpeg') }}" class="card-img" alt="Boutique">
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h5 class="card-title">Notre Boutique</h5>
+                <p class="card-text">Bienvenue dans notre boutique. Nous offrons une large gamme de produits et services pour répondre à tous vos besoins en matière de téléphonie, tablettes et ordinateurs. Venez nous rendre visite et découvrez notre sélection exceptionnelle.</p>
+                <p class="card-text"><strong>Horaires d'ouverture :</strong><br>
+                    Lundi - Vendredi : 9h00 - 19h00<br>
+                    Samedi : 10h00 - 18h00<br>
+                    Dimanche : Fermé
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Divider -->
+<div class=" d-flex justify-content-center" >
+    <div class="divider "></div>
+</div>
+<!-- Divider -->
+
+
 <!--- Container Accueil -->
 
-
-<div class="container mt-5" id="containerAccueil">
+<div class="container mb-5 mt-5" id="containerAccueil">
     <!-- First Card -->
-    <div class="row mb-4">
+    <div class="row mb-5">
         <div class="col-md-6 d-flex justify-content-center align-items-center">
             <img src="{{ asset('images/accueil/real-mobile_accueil.png') }}" class="img-fluid d-block" id="imgAccueil2" alt="Image 1">
         </div>
@@ -233,7 +287,7 @@
     </div>
     
     <!-- Second Card -->
-    <div class="row mb-4">
+    <div class="row mb-5 mt-5">
         <div class="col-md-6 order-md-2 d-flex justify-content-center align-items-center">
             <img src="{{ asset('images/accueil/pcAccueil.png') }}" class="img-fluid" alt="Image 2">
         </div>
@@ -254,7 +308,7 @@
     </div>
 
     <!-- Third Card -->
-    <div class="row mb-4">
+    <div class="row mb-5 mt-5">
         <div class="col-md-6 d-flex justify-content-center align-items-center ">
             <img src="{{ asset('images/accueil/coqueAccueil2.png') }}" class="img-fluid" id="imgAccueil2" alt="Image 3">
         </div>
@@ -275,7 +329,7 @@
     </div>
 
     <!-- Fourth Card -->
-    <div class="row mb-4">
+    <div class="row mb-5 mt-5">
         <div class="col-md-6 order-md-2 d-flex justify-content-center ">
             <img src="{{ asset('images/accueil/Hydrogel3.png') }}" class="img-fluid" id="imgAccueil2" alt="Image 4">
         </div>
@@ -297,5 +351,7 @@
         </div>
     </div>
 </div>
+
+<!--- Container Accueil -->
 
 {% endblock %}

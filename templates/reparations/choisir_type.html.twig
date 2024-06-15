@@ -1,0 +1,224 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Une Réparation ?{% endblock %}
+
+{% block body %}
+<style>
+    .carousel {
+        width: 90%;
+        height: 300px;
+        margin: 0 auto;
+        border-radius: 15px;
+        overflow: hidden;
+        margin-top: 20px;
+    }
+    .carousel-inner img {
+        height: 500px;
+        object-fit: cover;
+    }
+
+    .carousel-item {
+        height: 100%;
+    }
+
+    .carousel-caption {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        text-align: center;
+        background-color: rgba(0, 0, 0, 0.4); /* Optional: adds a semi-transparent background */
+        padding: 10px;
+        border-radius: 10px;
+        width: 100%; /* Adjust the width of the caption */
+        height: 100%; /* Adjust the height of the caption */
+        font-size: 1.2em; /* Adjust the font size of the caption */
+    }
+
+    .carousel-item {
+        transition: transform 0.7s ease, opacity 0.8s ease; /* Adjust transition duration */
+    }
+
+    
+
+    .card-title {
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    .card-img-top {
+            width: 100%;
+            height: 200px; /* Taille fixe pour les images */
+            object-fit: cover; /* Pour couvrir toute la zone sans déformation */
+        }
+        .divider {
+            height: 2px;
+            background-color: #ccc;
+            margin: 30px 0;
+        }
+
+        #image_rep_mobile {
+            height: 200px;
+        }
+
+        #uneRep {
+            font-size: 2em;
+            font-weight: bold;
+        }
+
+    .header-content {
+        background-color: #f7f7f7;
+        padding: 20px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+    }
+
+    .faq-section {
+        padding: 20px;
+        background-color: #e9ecef;
+        border-radius: 8px;
+    }
+
+    .faq-question {
+        font-weight: bold;
+    }
+
+    .section-title {
+        margin-top: 20px;
+    }
+
+
+    .highlight {
+        color: rgb(9, 71, 113);
+        font-weight: bold;
+        font-size: 16px;
+    }
+
+    .card {
+        height: 200px;
+        width: 250px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+        background-color: transparent;
+        border: none;
+    }
+
+    .card-img-top {
+        max-height: 200px; 
+        width: auto;
+        max-width: 100%; 
+        
+    }
+
+    .card-body {
+        padding: 0.5rem; /* Réduit le padding intérieur pour économiser de l'espace */
+    }
+
+
+</style>
+
+<div id="carouselExampleIndicators" class="carousel slide mb-5" data-ride="carousel" data-interval="4000">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img class="d-block w-100" src="{{ asset('images/reparation/reparation_mobile2.jpeg') }}" alt="First slide">
+            <div class="carousel-caption">
+                <h5 id="uneRep" >Une Réparation ?</h5>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+{# card section appareils #}
+
+<div class="container mt-5 mb-5 ">
+    <div class="d-flex justify-content-center mb-5">
+        <h2 class="mb-5">Selectionnez votre appareil.</h2>
+    </div>
+    <div class="row d-flex justify-content-center mt-5">
+        <!-- Card 1 -->
+        <div class="col-md-4 mb-4 d-flex justify-content-center align-items-center">
+            <div class="card">
+                <a href="{{ path('choix_marque', {'type': 'phone'}) }}">
+                    <img src="{{ asset('images/accueil/rep_phone_accueil.png') }}" class="card-img-top  mt-3" id="image_rep_mobile" alt="Téléphone">
+                </a>
+                <div class="card-body text-center">
+                    <p class="card-text mt-3">Téléphone</p>
+                </div>
+            </div>
+        </div>
+        <!-- Card 2 -->
+        <div class="col-md-4 mb-4 d-flex justify-content-center align-items-center">
+            <div class="card">
+                <a href="{{ path('choix_marque', {'type': 'tablet'}) }}">
+                    <img src="{{ asset('images/accueil/rep_tablette_accueil.png') }}" class="card-img-top" alt="Tablette">
+                </a>
+                <div class="card-body text-center">
+                    <p class="card-text mt-3">Tablette</p>
+                </div>
+            </div>
+        </div>
+        <!-- Card 3 -->
+        <div class="col-md-4 mb-4 d-flex justify-content-center align-items-center">
+            <div class="card">
+                <a href="{{path('app_ordinateur')}}">
+                    <img src="{{ asset('images/accueil/rep_pc_accueil.png') }}" class="card-img-top" alt="Ordinateur">
+                </a>
+                <div class="card-body text-center">
+                    <p class="card-text mt-3">Ordinateur</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{# card section appareils #}
+
+{# description et question réponse #}
+
+<div class="container">
+        <div class="header-content">
+            <h1>Confiez la réparation de votre appareils à <span >D'panne Phones</span>.</h1>
+            <p>Choisissez <span class=" highlight">D'panne Phones</span> pour une réparation fiable et professionnelle de votre smartphone ou tablette. Notre équipe qualifiée est dédiée à <span class=" highlight">restaurer vos appareils</span> efficacement. Nous nous engageons à maintenir une haute qualité de service en utilisant exclusivement des <span class=" highlight">composants de rechange haut de gamme</span>. <br> Grâce à notre rapidité d’exécution et à notre excellent service client, nous vous assurons une réparation sans souci de votre appareil. Pour une solution fiable et efficace, tournez-vous vers <span class=" highlight">D'panne Phones</span> pour faire revivre votre équipement électronique préféré.</p><br>
+        </div>
+
+        <div class="faq-section mb-5"> 
+            <h2 class="section-title d-flex justify-content-center mb-5">Questions fréquentes</h2>
+            <p class="faq-question">Mon écran est cassé, dois-je faire remplacer la vitre ou le bloc écran entier?</p>
+            <p>Les écrans des téléphones récents, qu’ils soient de marque iPhone, Samsung ou Huawei, sont construits avec plusieurs couches interconnectées. En conséquence, au fil du temps, l’écran est devenu une pièce indivisible, ce qui signifie que s’il se brise, il doit être remplacé dans son intégralité.</p><br>
+
+            <p class="faq-question">Dois-je prendre rendez-vous pour effectuer ma réparation?</p>
+            <p>Nous réparons avec ou sans rendez-vous. Cependant, il est recommandé de communiquer avec l’un de nos techniciens pour confirmer la disponibilité de la pièce de remplacement dans la couleur appropriée avant de vous déplacer.</p><br>
+
+
+            <p class="faq-question">Combien de temps est garantie ma réparation?</p>
+            <p>Nos réparations sont garanties 6 mois.</p><br>
+
+            <p class="faq-question">J’ai recassé mon écran, suis-je éligible à la garantie?</p>
+            <p>Non, nous ne garantissons pas la casse.</p><br>
+
+            <p class="faq-question">Apple ne vendant pas d’écran en pièce détachée, comment faites-vous?</p>
+            <p>Nous ne prétendons pas offrir des écrans complets Apple d’origine. Le terme « d’origine » est utilisé pour décrire des pièces qui égalent la qualité de celles d’origine. Notre processus consiste à reconditionner les panneaux LCD et OLED provenant des écrans Apple existants pour fabriquer de nouveaux écrans.</p><br>
+
+            <p class="faq-question">Débloquez-vous les iPhone bloqués iCloud?</p>
+            <p>Non. Ceci est illégal.</p><br>
+
+            <p class="faq-question">Débloquez-vous les téléphones bloqués avec un compte Gmail?</p>
+            <p>Non. ceci est illégal.</p><br>
+
+            <p class="faq-question">Débloquez-vous les appareils bloqués avec un code de verrouillage?</p>
+            <p>Oui, cela coute 10€ avec présentation de la facture d’achat du téléphone. Cependant vous perdez toutes les données et votre téléphone demandera dans de très nombreux cas l’ancien mot de passe du compte iCloud ou le compte Gmail associé à l’appareil.</p><br>
+        </div>
+    </div>
+
+
+{# description et question réponse #}
+
+{% endblock %}
